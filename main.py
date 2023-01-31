@@ -23,7 +23,7 @@ def download():
     cont = request.form["cont"]
 
     # Baixa o torrent
-    subprocess.run(["transmission-cli", "-w", "./", link])
+    subprocess.run(["transmission-cli", "-w", "./", link,"--exit-when-done"])
 
     # Converte arquivos para MP4
     subprocess.run(["ffmpeg", "-i", "*.webm", "-c:v", "copy", "-c:a", "copy", "webm.mp4"])
